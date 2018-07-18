@@ -19,7 +19,7 @@
     "unit::watch": "watch \"npm run unit\" ./src ./test-unit",
     "webpack": "webpack --progress test-page-webpack/index.js test-page-webpack/dist/build.js",
     "specs": "node ./node_modules/cucumber/bin/cucumber-js test-specs --require ./test-specs/steps",
-    "build": "./node_modules/.bin/babel src -d dist/lib --presets es2015 && ./node_modules/.bin/grunt build"
+    "build": "./node_modules/.bin/babel src -d dist/lib --presets es2015 && grunt build"
   },
   "repository": {
     "type": "git",
@@ -66,6 +66,11 @@
   },
   "homepage": "http://deepstream.io",
   "eslintConfig": {
-    "extends": "deepstream"
+    "extends": "deepstream",
+    "rules": {
+      "linebreak-style": 0,
+      "arrow-parens": 0,
+      "no-unused-vars": 0
+    }
   }
 }

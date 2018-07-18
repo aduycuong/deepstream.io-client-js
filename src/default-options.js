@@ -136,5 +136,12 @@ module.exports = {
    *                                             node.
    * @default null
    */
-  nodeSocketOptions: null
+  nodeSocketOptions: null,
+
+  /**
+   * A change to set socket and create endpoint
+   * @returns endpoint
+   */
+  getEndPoint: (url) => null
+
 }

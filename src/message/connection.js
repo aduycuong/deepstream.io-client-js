@@ -154,9 +154,14 @@ Connection.prototype.close = function () {
  * @returns {void}
  */
 Connection.prototype._createEndpoint = function () {
-  this._endpoint = BrowserWebSocket
+
+  if (this._options.getEndpoint) {
+    this._endpoint = this._options.getEndpoint(this._url)
+  } else {
+    this._endpoint = BrowserWebSocket
     ? new BrowserWebSocket(this._url)
     : new NodeWebSocket(this._url, this._options.nodeSocketOptions)
+  }
 
 
   this._endpoint.onopen = this._onOpen.bind(this)
